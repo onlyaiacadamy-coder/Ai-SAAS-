@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether | AI Image Generation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Aether Logo" class="logo">
+            <span class="brand-name">Aether</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="mobile-menu-btn">☰</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Imagine <span class="gradient-text">Anything</span>.</h1>
+            <p class="hero-subtitle">Create stunning visuals in seconds with our advanced AI engine. From photorealistic portraits to abstract art, imagine the impossible.</p>
+            
+            <div class="prompt-box">
+                <span class="prompt-text" id="typewriter"></span><span class="cursor">|</span>
+                <button class="generate-btn">Generate</button>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Why Aether?</h2>
+            <p>Unleash your creativity with tools designed for the future.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Generate high-resolution images in under 5 seconds using our optimized GPU clusters.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎨</div>
+                <h3>Style Control</h3>
+                <p>Fine-tune every aspect of your image with precise style, lighting, and composition controls.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Commercial Rights</h3>
+                <p>You own every pixel you create. Full commercial license included with all plans.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="section-header">
+            <h2>Made with Aether</h2>
+            <p>Explore what's possible. All images generated directly by our AI.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item item-1">
+                <img src="assets/gallery_1.png" alt="Cyberpunk City">
+                <div class="overlay">
+                    <span>Cyberpunk City</span>
+                </div>
+            </div>
+            <div class="gallery-item item-2">
+                <img src="assets/gallery_2.png" alt="Fluid Art">
+                <div class="overlay">
+                    <span>Liquid Metal</span>
+                </div>
+            </div>
+            <div class="gallery-item item-3">
+                <img src="assets/gallery_3.png" alt="Cyborg Portrait">
+                <div class="overlay">
+                    <span>Cyborg Portrait</span>
+                </div>
+            </div>
+            <div class="gallery-item item-4">
+                <img src="assets/gallery_4.png" alt="Fantasy Landscape">
+                <div class="overlay">
+                    <span>Dreamscape</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <h2>Simple Pricing</h2>
+            <p>Start for free, upgrade for power.</p>
+        </div>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price">$0<span>/mo</span></div>
+                <ul>
+                    <li>100 images/month</li>
+                    <li>Standard speed</li>
+                    <li>Personal license</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Start Free</a>
+            </div>
+            <div class="price-card popular">
+                <div class="tag">Most Popular</div>
+                <h3>Pro</h3>
+                <div class="price">$29<span>/mo</span></div>
+                <ul>
+                    <li>Unlimited images</li>
+                    <li>Fast generation</li>
+                    <li>Commercial license</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Pro</a>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <div class="price">$99<span>/mo</span></div>
+                <ul>
+                    <li>API Access</li>
+                    <li>Dedicated GPU</li>
+                    <li>Custom models</li>
+                    <li>SLA Guarantee</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-name">Aether</span>
+                <p>&copy; 2024 Aether AI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
