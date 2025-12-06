@@ -35,8 +35,19 @@
                 portraits to abstract art, imagine the impossible.</p>
 
             <div class="prompt-box">
-                <span class="prompt-text" id="typewriter"></span><span class="cursor">|</span>
-                <button class="generate-btn">Generate</button>
+                <input type="text" class="prompt-input" id="promptInput" placeholder="Enter your prompt...">
+                <button class="generate-btn" id="generateBtn">Generate</button>
+            </div>
+
+            <div class="result-container" id="resultContainer">
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Generating your image...</p>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="generated-image-container" id="imageContainer">
+                    <img id="generatedImage" alt="Generated Image">
+                </div>
             </div>
         </div>
         <div class="hero-background">
@@ -44,6 +55,96 @@
             <div class="glow-orb orb-2"></div>
         </div>
     </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const promptInput = document.getElementById('promptInput');
+            const generateBtn = document.getElementById('generateBtn');
+            const resultContainer = document.getElementById('resultContainer');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const errorMessage = document.getElementById('errorMessage');
+            const imageContainer = document.getElementById('imageContainer');
+            const generatedImage = document.getElementById('generatedImage');
+
+            // Generate button click handler
+            generateBtn.addEventListener('click', async () => {
+                const prompt = promptInput.value.trim();
+
+                if (!prompt) {
+                    showError('Please enter a prompt');
+                    return;
+                }
+
+                // Reset states
+                hideError();
+                hideImage();
+                showLoading();
+                resultContainer.style.display = 'block';
+
+                try {
+                    const imageBlob = await generateImage(prompt);
+                    const imageUrl = URL.createObjectURL(imageBlob);
+
+                    hideLoading();
+                    showImage(imageUrl);
+                } catch (error) {
+                    hideLoading();
+                    showError(error.message || 'Failed to generate image. Please try again.');
+                }
+            });
+
+            // Allow Enter key to trigger generation
+            promptInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    generateBtn.click();
+                }
+            });
+
+            async function generateImage(prompt) {
+                const response = await fetch('http://localhost:3000/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt }),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || `Server Error: ${response.status} ${response.statusText}`);
+                }
+
+                const blob = await response.blob();
+                return blob;
+            }
+
+            function showLoading() {
+                loadingSpinner.style.display = 'flex';
+            }
+
+            function hideLoading() {
+                loadingSpinner.style.display = 'none';
+            }
+
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+            }
+
+            function hideError() {
+                errorMessage.style.display = 'none';
+            }
+
+            function showImage(url) {
+                generatedImage.src = url;
+                imageContainer.style.display = 'block';
+            }
+
+            function hideImage() {
+                imageContainer.style.display = 'none';
+            }
+        });
+    </script>
 
     <section id="features" class="features">
         <div class="section-header">
